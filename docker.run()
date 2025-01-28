@@ -1,14 +1,12 @@
 pipeline {
     agent any
-
     stages {
         stage('Run Docker Container') {
             steps {
                 script {
-                    def imageName = "zealous_wing:latest"
-                    docker.image(imageName).inside {
-                        // your docker run logic here
-                        echo 'Running inside the container!'
+                    docker.image('zealous_wing:latest').inside {
+                        // Your commands here, for example:
+                        sh 'echo Hello from inside Docker!'
                     }
                 }
             }
